@@ -3,19 +3,6 @@
 Sistema de gestión de servicios de transporte desarrollado con Spring Boot y Oracle Database.
 
 ---
-
-## 📋 Tabla de Contenidos
-
-- [Configuración Inicial](#configuración-inicial)
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [Configuración de la Base de Datos](#configuración-de-la-base-de-datos)
-- [Ejecución de la Aplicación](#ejecución-de-la-aplicación)
-- [Ejecución de Tests](#ejecución-de-tests)
-- [Orden de Ejecución de Requisitos Funcionales](#orden-de-ejecución-de-requisitos-funcionales)
-- [Limpieza y Re-ejecución](#limpieza-y-re-ejecución)
-- [Notas Importantes](#notas-importantes)
-
-
 ## ⚙️ Configuración Inicial
 
 ### 1. Clonar o descargar el proyecto
