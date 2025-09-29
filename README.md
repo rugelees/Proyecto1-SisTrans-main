@@ -38,7 +38,7 @@ spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
 
 **Ejemplo:**
 ```properties
-spring.datasource.url=jdbc:oracle:thin:@localhost:1521:XE
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:PROD
 spring.datasource.username=ISIS2304B15202520
 spring.datasource.password=tu_password
 ```
@@ -50,15 +50,19 @@ spring.datasource.password=tu_password
 ```
 Proyecto1-SisTrans-main/
 ├── docs/
-│   ├── p1implementacion.sql    # Script de creación de tablas
+│   ├── tablas.sql    # Script de creación de tablas
 │   ├── poblacion.sql            # Script para poblar la base de datos
 │   ├── limpiar.sql              # Script para limpiar la base de datos
 │   ├── RFC1.sql                 # Consulta RFC1
 │   ├── RFC2.sql                 # Consulta RFC2
 │   ├── RFC3.sql                 # Consulta RFC3
-│   └── RFC4.sql                 # Consulta RFC4
+│   ├── RFC4.sql                 # Consulta RFC4
+│   ├── SISTRANS-E_R.xlsx        # Archivo E/R corregido
+│   ├── UML_FINAL.drawio.png     # Archivo UML corregido
+│   └── InformeP1-Sistrans.pdf   # Documento de Informe del proyecto
 ├── collections/
 │   ├── RF - Proyecto Sistrans.postman_collection.json
+│   ├── RFC - Proyecto Sistrans.postman_collection.json
 │   └── New Environment.postman_environment.json
 ├── src/
 │   └── main/
@@ -224,44 +228,6 @@ Para ejecutar los tests desde cero, debes limpiar y repoblar la base de datos:
 - Ahora puedes ejecutar todos los RF desde RF1 hasta RF11
 
 ## 📌 Notas Importantes
-
-### Datos Pre-poblados
-
-La base de datos viene con datos de prueba:
-
-| Tipo | Rango de IDs/Cédulas | Descripción |
-|------|---------------------|-------------|
-| Ciudades | - | Bogotá, Medellín, Cali |
-| Puntos | 1-20 | Puntos de trayecto en Bogotá |
-| Conductores | 1001-1100 | 100 conductores disponibles |
-| Vehículos | AUT001-AUT100 | 100 vehículos registrados |
-| Pasajeros | 2001-2200 | 200 usuarios de servicios |
-| Servicios finalizados | 1-200 | Historial de servicios |
-| Servicios abiertos | 201-203 | Para pruebas de RF9 |
-
-### Rangos para Nuevos Registros
-
-Al crear nuevos datos en los tests, usa estos rangos para evitar colisiones:
-
-- **Conductores nuevos**: Cédulas 30001+
-- **Pasajeros nuevos**: Cédulas 50001+
-- **Vehículos nuevos**: Placas XYZ001+
-- **Puntos nuevos**: Se crean automáticamente desde ID 21+
-- **Servicios nuevos**: Se crean automáticamente desde ID 204+
-
-### Problemas Conocidos
-
-1. **Error: Ya existe una disponibilidad con horarios superpuestos**
-   - La verificación de disponibilidad es global (no por conductor)
-   - Solución: Usa fechas diferentes para cada disponibilidad
-
-2. **Error: El usuario no solicitó este servicio**
-   - Verifica que el `cedula_autor` sea el solicitante del servicio
-   - Los servicios pre-poblados tienen combinaciones específicas
-
-3. **Error: El servicio no existe**
-   - Asegúrate de ejecutar RF8 antes de RF9
-   - O repobla la base de datos para crear servicios 201-203
 
 ### Consultas RFC (Requerimientos Funcionales de Consulta)
 
